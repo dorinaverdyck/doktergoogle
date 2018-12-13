@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font: 18px, 'Roboto', sans-serif;
+color: #4285F4;
+
+}
+*{
+    font-family: 'Roboto', sans-serif;
+}
+section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    column-count: 4;
+}
+
+#welcome {
+  background-color: white;
+}
+
+.language-bar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#welcome .img {
+   ;
+  cursor: pointer;
+}
+
+.btn {
+  border: 1px solid #4285F4;
+    border-radius: 5px;
+  padding: 10px;
+    
+}
+
+.red {
+  background-color: white;
+  color: #4285F4;
+
+}
+
+
+@media print {
+  .btn {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  .language-bar {
+    display: none;
+  }
+}
+
+.symptoms-hoofding {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.symptoms-question {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid #4285F4;
+  border-bottom: 1px solid #4285F4;
+}
+
+.opties {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+
+.kolom {
+  flex: 1;
+    max-width: 400px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+
+.row {
+  display: flex;
+  align-items: center;
+    margin-left: 100px;
+}
+
+.check {
+  width: 11px;
+  height: 11px;
+  background: #4285F4 ;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 100%;
+  position: relative;
+}
+
+.row input[type=checkbox] {
+    visibility: hidden;
+}
+
+.check input[type=checkbox]:checked + label {
+  background: #4285F4;
+}
+
+.check label {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1;
+
+    background: white;
+}
+
+.row .check + label {
+  color: #4285F4;
+  font-size: 16px;
+}
+
+
+.diagnose-layout {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+
+.diagnose-kolom {
+  flex: 1;
+}
+
+.diagnose-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.diagnose-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+
+.diagnose-ziekte {
+  font-size: 48px;
+  color: #4285F4;
+  margin-bottom: 20px;
+}
+
+.diagnose-titel {
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid #4285F4;
+  border-bottom: 1px solid #4285F4;
+}
+
+.prescription-image {
+
+}
+
+.prescription-footer {
+ 
+}
+
+
+#foto1 {
+    margin-left: 40px;
+    
+}
+
+#foto2{
+    margin-left: 40px;
+}
+
+h2{
+    text-align: center;
+}
