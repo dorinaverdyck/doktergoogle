@@ -13,14 +13,14 @@
         <img id="reset-button" src="images/googlelogo.svg" alt="" width="150">
       </div>
       <div class="language-bar">
-        <a href="#"><img width="50" src="images/nl%20logo.svg" alt=""></a>
-        <a href="#"><img width="50" src="images/fr%20logo.svg" alt=""></a>
-        <a href="#"><img width="50" src="images/en%20logo.svg" alt=""></a>
-        <a href="#"><img width="50" src="images/de%20logo.svg" alt=""></a>
+        <a href="#" onclick="switchLanguage(event, 'nl')"><img height="30" src="images/nl%20logo.svg" alt=""></a>
+        <a href="#" onclick="switchLanguage(event, 'fr')"><img height="30" src="images/fr%20logo.svg" alt=""></a>
+        <a href="#" onclick="switchLanguage(event, 'en')"><img height="23" src="images/en%20logo.svg" alt=""></a>
+        <a href="#" onclick="switchLanguage(event, 'de')"><img height="30" src="images/de%20logo.svg" alt=""></a>
       </div>
     </div>
-    <section id="welcome">
-      <img class="title" src="images/home%20dokter%20google.svg">
+    <section id="welcome" class="welcome-section">
+      <img class="main-logo" src="images/home%20dokter%20google.svg">
     </section>
     <section id="symptoms" style="display: none">
       <div class="page-title">
@@ -28,7 +28,7 @@
       </div>
       <div class="opties">
         <div class="kolom">
-          <img id="foto1" src="images/5887EEE3522ABED6.jpg" alt="" class="thumb">
+          <img id="foto1" src="images/headache-nl.jpg" alt="" class="thumb i18n">
           <h2 class="symptoms-question">Waar heeft u last van?</h2>
           <div class="checkbox-container">
             <input id="check-stress" type="checkbox">
@@ -196,7 +196,7 @@
           </div>
         </div>
         <div class="kolom">
-          <img id="foto2" src="images/C9C2092E8482B02F.jpg" alt="" width= "300" class="thumb">
+          <img id="foto2" src="images/muscle-nl.jpg" alt="" width= "300" class="thumb i18n">
           <h2 class="symptoms-question">Waar heeft u pijn?</h2>
           <div class="checkbox-container">
             <input id="check-hoofd" type="checkbox">
@@ -370,13 +370,12 @@
     </section>
 
     <section id="diagnose" style="display: none">
-      👇 PREPLACE WITH CORRECT IMAGE👇
       <div class="page-title">
-        <img src="images/symptomennl.svg" alt="" class="title-svg">
+        <img src="images/diagnosenl.svg" alt="" class="title-svg">
       </div>
       <div class="diagnose-layout">
         <div class="diagnose-kolom">
-          <img src="images/E74DD4981FD2CD81.jpg" alt="" class="diagnose-thumb">
+          <img src="images/diagnose-nl.jpg" alt="" class="diagnose-thumb i18n">
         </div>
         <div class="diagnose-kolom">
           <div class="diagnose-ziekte">
@@ -393,13 +392,13 @@
     </section>
 
     <section id="prescription" style="display: none">
-      <div class="prescription-header">
-        <img src="images/voorschriftnl.svg" alt="">
+      <div class="page-title">
+        <img src="images/voorschriftnl.svg" alt="" class="title-svg">
       </div>
       <div class="prescription-layout">
-        <img class="prescription-image" src="images/voorschrift-4.svg" alt="" height="1000">
+        <img class="prescription-image" src="images/extra's/voorschrift-4.svg" alt="" height="1000">
       </div>
-      <div class="prescription-footer">
+      <div class="button-row">
         <button class="btn red" id="print-button">Print</button>
       </div>
     </section>
