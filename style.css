@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font: 18px, 'Roboto', sans-serif;
-color: #4285F4;
+  font: 18px 'Roboto', sans-serif;
+  color: #4285F4;
+}
 
-}
-*{
-    font-family: 'Roboto', sans-serif;
-}
 section {
   display: flex;
   width: 100%;
@@ -17,57 +15,47 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-    column-count: 4;
+  column-count: 4;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 #welcome {
   background-color: white;
 }
 
-.language-bar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 #welcome .img {
-   ;
   cursor: pointer;
 }
 
 .btn {
-  border: 1px solid #4285F4;
-    border-radius: 5px;
+  border: 2px solid #4285F4;
+  border-radius: 5px;
   padding: 10px;
-    
+  font-size: 18px;
 }
 
 .red {
   background-color: white;
   color: #4285F4;
-
 }
-
 
 @media print {
   .btn {
     display: none;
   }
+
   .logo {
     display: none;
   }
+
   .language-bar {
     display: none;
   }
 }
 
-.symptoms-hoofding {
-  margin-top: 25px;
-  margin-bottom: 15px;
-}
-
 .symptoms-question {
-  margin: 10px 0;
+  margin: 10px 0 30px;
   padding: 10px 0;
   border-top: 1px solid #4285F4;
   border-bottom: 1px solid #4285F4;
@@ -78,7 +66,6 @@ section {
   flex-direction: row;
   width: 90%;
   justify-content: space-between;
-
 }
 
 .button-row {
@@ -86,77 +73,43 @@ section {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 150px;
 }
 
 .kolom {
   flex: 1;
-    max-width: 400px;
+  max-width: 400px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid;
 }
 
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.kolom:first-child {
+  padding-right: 10px;
 }
 
-
-.row {
-  display: flex;
-  align-items: center;
-    margin-left: 100px;
+.kolom:nth-child(2) {
+  padding-left: 10px;
 }
-
-.check {
-  width: 11px;
-  height: 11px;
-  background: #4285F4 ;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-right: 10px;
-  margin-left: 10px;
-  border-radius: 100%;
-  position: relative;
-}
-
-.row input[type=checkbox] {
-    visibility: hidden;
-}
-
-.check input[type=checkbox]:checked + label {
-  background: #4285F4;
-}
-
-.check label {
-    display: block;
-    width: 9px;
-    height: 9px;
-    border-radius: 100%;
-
-    transition: all .5s ease;
-    cursor: pointer;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    z-index: 1;
-
-    background: white;
-}
-
-.row .check + label {
-  color: #4285F4;
-  font-size: 16px;
-}
-
 
 .diagnose-layout {
   display: flex;
-  flex-direction: row;
-  width: 90%;
+  flex-direction: column;
+  max-width: 90%;
+  width: 600px;
+}
+
+.diagnose-seed {
+  text-align: justify;
+  padding-bottom: 60px;
+  border-bottom: 2px solid;
 }
 
 .diagnose-kolom {
   flex: 1;
+}
+
+.diagnose-thumb {
+  width: 100%;
 }
 
 .diagnose-header {
@@ -164,18 +117,14 @@ section {
   margin-bottom: 10px;
 }
 
-.diagnose-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-}
-
 .diagnose-ziekte {
   font-size: 48px;
   color: #4285F4;
-  margin-bottom: 20px;
+  padding: 60px 0;
+}
+
+.diagnose-ziekte::first-letter {
+  text-transform: uppercase;
 }
 
 .diagnose-titel {
@@ -186,24 +135,124 @@ section {
   border-bottom: 1px solid #4285F4;
 }
 
-.prescription-image {
-
+h2 {
+  text-align: center;
 }
 
-.prescription-footer {
- 
+.page-title {
+  padding: 10px 35px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  margin-bottom: 50px;
+}
+
+/* .title-svg {
+
+} */
+
+.opties .thumb{
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+/* ----------------- NavBar ------------------*/
+.navbar {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar .logo {
+  flex: 1;
+}
+
+/* ------------- Loading Spinner -------------*/
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loading-spinner div {
+  position: absolute;
+  border: 4px solid #4285F4;
+  opacity: 1;
+  border-radius: 50%;
+  animation: loading-spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loading-spinner div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes loading-spinner {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
 }
 
 
-#foto1 {
-    margin-left: 40px;
-    
+/* ---------------- Checkbox -----------------*/
+.checkbox-container {
+  position: relative;
+  margin-left: 30px;
 }
 
-#foto2{
-    margin-left: 40px;
+.checkbox-container label:hover {
+  cursor: pointer;
 }
 
-h2{
-    text-align: center;
+.checkbox-container input[type='checkbox'] {
+  display: none;
+}
+
+.checkbox-container label:before,
+.checkbox-container input:checked ~ label:after {
+  position: absolute;
+  border-radius: 50%;
+  display: block;
+}
+
+.checkbox-container label:after {
+  content: '';
+}
+
+.checkbox-container label:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 1px solid #4285F4;
+  left: -20px;
+  margin-top: 5px;
+}
+
+.checkbox-container input:checked ~ label:after {
+  background-color: #4285F4;
+  width: 6px;
+  height: 6px;
+  left: -17px;
+  margin-top: 8px;
+  top: 0;
 }
