@@ -39,8 +39,6 @@ function goToPrescriptionScreen() {
   document.querySelector(".prescription-image").src = imageUrl;
 }
 
-
-
 const PRESCRIPTIONS = [
   "images/voorschrift-1.svg",
   "images/voorschrift-2.svg",
@@ -55,6 +53,7 @@ function printPrescription() {
 function switchLanguage(e, newLocale) {
   e.preventDefault();
   document.querySelectorAll('.i18n').forEach(img => (img.src = img.src.replace(locale, newLocale)));
+  document.querySelector('body').className = `locale-${newLocale}`;
   locale = newLocale;
 }
 

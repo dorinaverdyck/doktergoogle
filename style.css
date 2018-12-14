@@ -35,9 +35,6 @@ section {
   border-radius: 5px;
   padding: 10px;
   font-size: 18px;
-}
-
-.red {
   background-color: white;
   color: #4285F4;
 }
@@ -257,4 +254,47 @@ h2 {
   left: -17px;
   margin-top: 8px;
   top: 0;
+}
+
+/* ---------------- Locale EN -----------------*/
+.locale-en { color: #FCBC05; }
+.locale-en .checkbox-container label:before { border-color: #FCBC05; }
+.locale-en .checkbox-container input:checked ~ label:after { background-color: #FCBC05; }
+.locale-en .loading-spinner div { border-color: #FCBC05; }
+.locale-en .diagnose-ziekte { color: #FCBC05; }
+.locale-en .diagnose-titel { border-color: #FCBC05; }
+.locale-en .symptoms-question { border-color: #FCBC05; }
+
+.locale-en .btn {
+  border-color: #FCBC05;
+  color: #FCBC05;
+}
+
+/* ---------------- Locale FR -----------------*/
+.locale-fr { color: #EA4335; }
+.locale-fr .checkbox-container label:before { border-color: #EA4335; }
+.locale-fr .checkbox-container input:checked ~ label:after { background-color: #EA4335; }
+.locale-fr .loading-spinner div { border-color: #EA4335; }
+.locale-fr .diagnose-ziekte { color: #EA4335; }
+.locale-fr .diagnose-titel { border-color: #EA4335; }
+.locale-fr .symptoms-question { border-color: #EA4335; }
+
+.locale-fr .btn {
+  border-color: #EA4335;
+  color: #EA4335;
+}
+
+
+/* ---------------- Locale DE -----------------*/
+.locale-de { color: #34A853; }
+.locale-de .checkbox-container label:before { border-color: #34A853; }
+.locale-de .checkbox-container input:checked ~ label:after { background-color: #34A853; }
+.locale-de .loading-spinner div { border-color: #34A853; }
+.locale-de .diagnose-ziekte { color: #34A853; }
+.locale-de .diagnose-titel { border-color: #34A853; }
+.locale-de .symptoms-question { border-color: #34A853; }
+
+.locale-de .btn {
+  border-color: #34A853;
+  color: #34A853;
 }
