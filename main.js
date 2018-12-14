@@ -52,7 +52,7 @@ function printPrescription() {
 
 function switchLanguage(e, newLocale) {
   e.preventDefault();
-  document.querySelectorAll('.i18n').forEach(img => (img.src = img.src.replace(locale, newLocale)));
+  document.querySelectorAll('.i18n').forEach(img => (img.src = img.src.replace(`-${locale}`, `-${newLocale}`)));
   document.querySelector('body').className = `locale-${newLocale}`;
   locale = newLocale;
 }
@@ -104,8 +104,3 @@ $printButton.addEventListener("click", printPrescription);
 
 const $resetButton = document.querySelector("#reset-button");
 $resetButton.addEventListener("click", goToWelcomeScreen);
-
-// languageNl.addEventListener("click", switchLanguage('nl'));
-// languageFr.addEventListener("click", switchLanguage('fr'));
-// languageEn.addEventListener("click", switchLanguage('en'));
-// languageDe.addEventListener("click", switchLanguage('de'));
