@@ -1,7 +1,13 @@
+const SKETCH_ID = "-LTWTm__dntsH9NS-5ZE";
 const welcomeScreen = document.querySelector("#welcome");
 const symptomScreen = document.querySelector("#symptoms");
 const diagnoseScreen = document.querySelector("#diagnose");
 const prescriptionScreen = document.querySelector("#prescription");
+const PRESCRIPTIONS = [
+  "images/voorschrift-nl-1.svg",
+  "images/voorschrift-nl-2.svg",
+  "images/voorschrift-nl-3.svg"
+];
 let locale = 'nl';
 
 function choice(l) {
@@ -13,6 +19,7 @@ function hideElements(elements) {
 }
 
 function showElements(elements) {
+  scroll(0,0);
   elements.forEach(element => (element.style.display = "flex"));
 }
 
@@ -24,6 +31,7 @@ function goToSymptomScreen() {
 function goToDiagnoseScreen() {
   hideElements([welcomeScreen, symptomScreen, prescriptionScreen]);
   showElements([diagnoseScreen]);
+  document.querySelectorAll('.checkbox-container input:checked').forEach(input => input.checked = false);
   onGenerate();
 }
 
@@ -39,12 +47,6 @@ function goToPrescriptionScreen() {
   document.querySelector(".prescription-image").src = imageUrl;
 }
 
-const PRESCRIPTIONS = [
-  "images/voorschrift-1.svg",
-  "images/voorschrift-2.svg",
-  "images/voorschrift-3.svg"
-];
-
 function printPrescription() {
   window.print();
   goToWelcomeScreen();
@@ -56,8 +58,6 @@ function switchLanguage(e, newLocale) {
   document.querySelector('body').className = `locale-${newLocale}`;
   locale = newLocale;
 }
-
-const SKETCH_ID = "-LTWTm__dntsH9NS-5ZE";
 
 async function fetchSketch(sketchId) {
   const url = `https://emrg-pcg.firebaseio.com/sketch/${SKETCH_ID}.json`;

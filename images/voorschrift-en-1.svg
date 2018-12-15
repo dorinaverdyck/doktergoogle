@@ -3,8 +3,8 @@
 <svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 255.8 466.8" style="enable-background:new 0 0 255.8 466.8;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#517ABD;stroke-width:0.335;}
-	.st1{fill:#517ABD;}
+	.st0{fill:none;stroke:#FBBC05;stroke-width:0.335;}
+	.st1{fill:#FBBC05;}
 	.st2{clip-path:url(#SVGID_2_);}
 	.st3{fill:#E84435;}
 	.st4{fill:#FCBC05;}
@@ -465,7 +465,7 @@
 				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
 			</clipPath>
 			<g style="clip-path:url(#SVGID_4_);">
-				
+
 					<image style="overflow:visible;" width="471" height="203" xlink:href="41D76157701BAC2D.jpg"  transform="matrix(0.2261 0 0 0.2261 10.6369 40.0097)">
 				</image>
 			</g>
