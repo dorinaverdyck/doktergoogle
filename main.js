@@ -24,11 +24,13 @@ function showElements(elements) {
 }
 
 function goToSymptomScreen() {
+  pushHistoryState('symptom');
   hideElements([welcomeScreen, diagnoseScreen, prescriptionScreen]);
   showElements([symptomScreen]);
 }
 
 function goToDiagnoseScreen() {
+  pushHistoryState('diagnose');
   hideElements([welcomeScreen, symptomScreen, prescriptionScreen]);
   showElements([diagnoseScreen]);
   document.querySelectorAll('.checkbox-container input:checked').forEach(input => input.checked = false);
@@ -36,15 +38,28 @@ function goToDiagnoseScreen() {
 }
 
 function goToWelcomeScreen() {
+  pushHistoryState('welcome');
   hideElements([symptomScreen, diagnoseScreen, prescriptionScreen]);
   showElements([welcomeScreen]);
 }
 
 function goToPrescriptionScreen() {
+  pushHistoryState('prescription');
   hideElements([welcomeScreen, symptomScreen, diagnoseScreen]);
   showElements([prescriptionScreen]);
   const imageUrl = choice(PRESCRIPTIONS);
   document.querySelector(".prescription-image").src = imageUrl;
+}
+
+function pushHistoryState(section) {
+  const url = new URL(window.location.href);
+  if (section === 'welcome') {
+    url.searchParams.delete('section');
+  } else {
+    url.searchParams.set('section', section);
+  }
+  const parmas = url.href.split('.html')[1];
+  history.pushState({}, `${section} screen`, `index.html${parmas}`);
 }
 
 function printPrescription(){
@@ -62,12 +77,29 @@ function printPrescription(){
   goToWelcomeScreen();
 }
 
-function switchLanguage(e, newLocale) {
-  e.preventDefault();
+function switchLanguage(newLocale) {
   PRESCRIPTIONS = PRESCRIPTIONS.map(src => src.replace(`-${locale}`, `-${newLocale}`));
   document.querySelectorAll('.i18n').forEach(img => (img.src = img.src.replace(`-${locale}`, `-${newLocale}`)));
   document.querySelector('body').className = `locale-${newLocale}`;
   locale = newLocale;
+}
+
+function changeATag(aTag, lang) {
+  const url = new URL(window.location.href);
+  const section = url.searchParams.get('section');
+  if (section) {
+    if (lang === 'nl') {
+      aTag.href = `?section=${section}`;
+    } else {
+      aTag.href = `?lang=${lang}&section=${section}#googtrans(${lang}|${lang})`;
+    }
+  } else {
+    if (lang === 'nl') {
+      aTag.href = 'index.html';
+    } else {
+      aTag.href = `?lang=${lang}#googtrans(${lang}|${lang})`;
+    }
+  }
 }
 
 async function fetchSketch(sketchId) {
@@ -87,15 +119,29 @@ async function onGenerate() {
   const result = await generateString(window.sketch, "root", {}, Date.now());
   const ziekte = /U heeft last van (een\s+)?(.*?)\./.exec(result)[2];
 
-  // console.log(result);
-
   document.querySelector(".diagnose-seed").innerHTML = result;
   document.querySelector(".diagnose-ziekte").innerHTML = ziekte;
 }
 
 async function init() {
   window.sketch = await loadSketch(SKETCH_ID);
-  // document.querySelector('#generate').addEventListener('click', onGenerate);
+  const url = new URL(window.location.href);
+  const lang = url.searchParams.get('lang');
+  const section = url.searchParams.get('section');
+  if (lang) {
+    switchLanguage(lang);
+  }
+  switch (section) {
+    case 'symptom':
+      goToSymptomScreen();
+      break;
+    case 'diagnose':
+      goToDiagnoseScreen();
+      break;
+    case 'prescription':
+      goToPrescriptionScreen();
+      break;
+  }
   onGenerate();
 }
 
@@ -115,3 +161,29 @@ $printButton.addEventListener("click", printPrescription);
 
 const $resetButton = document.querySelector("#reset-button");
 $resetButton.addEventListener("click", goToWelcomeScreen);
+
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'nl', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+}
+
+function triggerHtmlEvent(element, eventName) {
+  var event;
+  if (document.createEvent) {
+    event = document.createEvent('HTMLEvents');
+    event.initEvent(eventName, true, true);
+    element.dispatchEvent(event);
+  } else {
+    event = document.createEventObject();
+    event.eventType = eventName;
+    element.fireEvent('on' + event.eventType, event);
+  }
+}
+
+jQuery('.lang-select').click(function() {
+  var theLang = jQuery(this).attr('data-lang');
+  jQuery('.goog-te-combo').val(theLang);
+
+  window.location = jQuery(this).attr('href');
+  location.reload();
+});

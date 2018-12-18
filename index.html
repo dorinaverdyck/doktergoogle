@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dokter Google</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 <body class="locale-nl">
   <div>
@@ -13,11 +14,13 @@
         <img id="reset-button" src="images/googlelogo.svg" alt="" height="40">
       </div>
       <div class="language-bar">
-        <a href="#" onclick="switchLanguage(event, 'nl')"><img height="30" src="images/nl%20logo.svg" alt=""></a>
-        <a href="#" onclick="switchLanguage(event, 'fr')"><img height="30" src="images/fr%20logo.svg" alt=""></a>
-        <a href="#" onclick="switchLanguage(event, 'en')"><img height="23" src="images/en%20logo.svg" alt=""></a>
-        <a href="#" onclick="switchLanguage(event, 'de')"><img height="30" src="images/de%20logo.svg" alt=""></a>
+        <a href="#" onclick="changeATag(this, 'nl')" class="lang-nl lang-select" data-lang="nl"><img height="30" src="images/nl%20logo.svg" alt=""></a>
+        <a href="#" onclick="changeATag(this, 'fr')" class="lang-fr lang-select" data-lang="fr"><img height="30" src="images/fr%20logo.svg" alt=""></a>
+        <a href="#" onclick="changeATag(this, 'en')" class="lang-en lang-select" data-lang="en"><img height="23" src="images/en%20logo.svg" alt=""></a>
+        <a href="#" onclick="changeATag(this, 'de')" class="lang-de lang-select" data-lang="de"><img height="30" src="images/de%20logo.svg" alt=""></a>
       </div>
+    </div>
+    <div>
     </div>
     <section id="welcome" class="welcome-section">
       <img class="main-logo" src="images/home%20dokter%20google.svg">
@@ -406,6 +409,7 @@
 
   <script src="https://seed.emrg.be/js/core.js"></script>
   <script src="https://seed.emrg.be/third_party/bundle.min.js"></script>
+  <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="main.js"></script>
 </body>
 </html>
