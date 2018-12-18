@@ -1,9 +1,9 @@
-const SKETCH_ID = "-LTWTm__dntsH9NS-5ZE";
+const SKETCH_ID = "-LU1rcKfhXHtTiSwdiMt";
 let welcomeScreen = document.querySelector("#welcome");
 let symptomScreen = document.querySelector("#symptoms");
 let diagnoseScreen = document.querySelector("#diagnose");
 let prescriptionScreen = document.querySelector("#prescription");
-const PRESCRIPTIONS = [
+let PRESCRIPTIONS = [
   "images/voorschrift-nl-1.svg",
   "images/voorschrift-nl-2.svg",
   "images/voorschrift-nl-3.svg"
@@ -64,6 +64,7 @@ function printPrescription(){
 
 function switchLanguage(e, newLocale) {
   e.preventDefault();
+  PRESCRIPTIONS = PRESCRIPTIONS.map(src => src.replace(`-${locale}`, `-${newLocale}`));
   document.querySelectorAll('.i18n').forEach(img => (img.src = img.src.replace(`-${locale}`, `-${newLocale}`)));
   document.querySelector('body').className = `locale-${newLocale}`;
   locale = newLocale;
