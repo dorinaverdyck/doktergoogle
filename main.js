@@ -1,8 +1,8 @@
 const SKETCH_ID = "-LTWTm__dntsH9NS-5ZE";
-const welcomeScreen = document.querySelector("#welcome");
-const symptomScreen = document.querySelector("#symptoms");
-const diagnoseScreen = document.querySelector("#diagnose");
-const prescriptionScreen = document.querySelector("#prescription");
+let welcomeScreen = document.querySelector("#welcome");
+let symptomScreen = document.querySelector("#symptoms");
+let diagnoseScreen = document.querySelector("#diagnose");
+let prescriptionScreen = document.querySelector("#prescription");
 const PRESCRIPTIONS = [
   "images/voorschrift-nl-1.svg",
   "images/voorschrift-nl-2.svg",
@@ -47,8 +47,18 @@ function goToPrescriptionScreen() {
   document.querySelector(".prescription-image").src = imageUrl;
 }
 
-function printPrescription() {
+function printPrescription(){
+  var printContents = document.getElementById('voorschrift-print').innerHTML;
+  var originalContents = document.body.innerHTML;
+  document.body.innerHTML = printContents;
+  document.body.classList.add('center');
   window.print();
+  document.body.classList.remove('center');
+  document.body.innerHTML = originalContents;
+  welcomeScreen = document.querySelector("#welcome");
+  symptomScreen = document.querySelector("#symptoms");
+  diagnoseScreen = document.querySelector("#diagnose");
+  prescriptionScreen = document.querySelector("#prescription");
   goToWelcomeScreen();
 }
 
