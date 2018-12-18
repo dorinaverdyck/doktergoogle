@@ -90,12 +90,14 @@ function changeATag(aTag, lang) {
   if (section) {
     if (lang === 'nl') {
       aTag.href = `?section=${section}`;
+      createCookie('googtrans', '', -1);
     } else {
       aTag.href = `?lang=${lang}&section=${section}#googtrans(${lang}|${lang})`;
     }
   } else {
     if (lang === 'nl') {
       aTag.href = 'index.html';
+      createCookie('googtrans', '', -1);
     } else {
       aTag.href = `?lang=${lang}#googtrans(${lang}|${lang})`;
     }
@@ -187,3 +189,14 @@ jQuery('.lang-select').click(function() {
   window.location = jQuery(this).attr('href');
   location.reload();
 });
+
+function createCookie(name,value,days) {
+  if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 *1000));
+      var expires = "; expires=" + date.toGMTString();
+  } else {
+      var expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
